@@ -39,10 +39,6 @@ lazy.setup({
   {"loctvl842/monokai-pro.nvim"},
 
 -- LSP
-{
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v2.x",
-    dependencies = {
       -- LSP Support
       { "neovim/nvim-lspconfig" },
       { "williamboman/mason.nvim" },
@@ -50,7 +46,7 @@ lazy.setup({
       { "jay-babu/mason-nvim-dap.nvim" },
 
       -- null-ls
-      { "jose-elias-alvarez/null-ls.nvim" },
+      { "nvimtools/none-ls.nvim" },
       { "jay-babu/mason-null-ls.nvim" },
 
       -- Autocompletion
@@ -65,7 +61,11 @@ lazy.setup({
       { "L3MON4D3/LuaSnip", version = "2.*" },
       { "rafamadriz/friendly-snippets" },
       { "honza/vim-snippets" },
-    },
-  },
-  {"mfussenegger/nvim-jdtls"}
+      -- java_lsp
+  {"mfussenegger/nvim-jdtls"},
+   {
+    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+-- or                              , branch = '0.1.x',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    }
 })

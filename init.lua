@@ -1,7 +1,7 @@
 require('plugins')
+require('keymapping')
 require('config.nvim_cmp')
 require('config.auto_cmp')
 require('config.tree-sitter')
 require('config.monokai_config')
 require('options')
-require('keymapping')
