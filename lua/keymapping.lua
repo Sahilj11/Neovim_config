@@ -74,15 +74,13 @@ keymap("n", "<leader>fo", ":Telescope oldfiles<CR>",opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>",opts)
 keymap("n", "<leader>fc", ":Telescope git_commits<CR>",opts)
 -- terminal mode
-keymap("n", "<leader>t", ":term<CR>", opts)
+keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
 keymap("t", "jk", "<C-\\><C-n>",opts)
 
 -- LSP
 --keymap("n", "<leader>lt", ":lua vim.diagnostic.open_float(0, {scope="line"})<CR>", opts)
 -- compiling and running
     -- java
-    keymap("n", "<leader>jc", ":!javac %:t<CR>", opts)
-    keymap("n", "<leader>jr", ":!java %:t:r<CR>", opts)
 --Keymapping for lsp
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

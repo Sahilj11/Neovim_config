@@ -10,21 +10,32 @@ require("mason").setup({
 require("mason-lspconfig").setup{
   ensure_installed = { "lua_ls", "rust_analyzer" },
 }
+local Capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Setup language servers.
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
-require("lspconfig").lua_ls.setup{}
-require("lspconfig").tsserver.setup{}
-require("lspconfig").emmet_language_server.setup{}
-require("lspconfig").pyright.setup{}
+require("lspconfig").lua_ls.setup{
+    capabilities = Capabilities,
+}
+require("lspconfig").tsserver.setup{
+    capabilities = Capabilities,
+}
+require("lspconfig").emmet_language_server.setup{
+    capabilities = Capabilities,
+}
+require("lspconfig").pyright.setup{
+    capabilities = Capabilities,
+}
 require("lspconfig").eslint.setup{}
 require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
-
+require("lspconfig").html.setup{
+  capabilities = capabilities,
+}
 -- null-ls
 local null_ls = require("null-ls")
 null_ls.setup({

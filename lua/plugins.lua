@@ -36,6 +36,11 @@ lazy.setup({
   -- List of plugins
   ---
   {"nvim-treesitter/nvim-treesitter"},
+   {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {} -- this is equalent to setup({}) function
+},
   { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
 -- LSP
       -- LSP Support
