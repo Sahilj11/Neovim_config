@@ -21,6 +21,7 @@ vim.g.maplocalleader = " "
 -- Normal -
 -- Better window navigation
 keymap("n","<leader>v", "<C-w>v", opts)
+keymap("n","<leader>c", "<C-w>s", opts)
 keymap("n", "<leader>h", "<C-w>h", opts)
 keymap("n", "<leader>j", "<C-w>j", opts)
 keymap("n", "<leader>k", "<C-w>k", opts)
@@ -31,8 +32,8 @@ keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
---keymap("n", "<C-w>.", ":vertical resize -2<CR>", opts)
---keymap("n", "<C-w>,", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-k>", ":vertical resize -3<CR>", opts)
+keymap("n", "<A-h>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -51,8 +52,8 @@ keymap("v", ">", ">gv", opts)
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
-keymap("n", "<leader>l", "$", opts)
-keymap("n", "<leader>h", "^", opts)
+keymap("n", "<leader>d", "$", opts)
+keymap("n", "<leader>a", "^", opts)
 
 -- Terminal --
 -- Better terminal navigation
@@ -68,11 +69,43 @@ keymap("n" , "<leader>w",":w<CR>", opts)
 -- telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>",opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>",opts)
-keymap("n", "<leader>fr", ":Telescope lsp_references<CR>",opts)
-keymap("n", "<leader>fi", ":Telescope lsp_implementations<CR>",opts)
 keymap("n", "<leader>ft", ":Telescope treesitter<CR>",opts)
-keymap("n", "<leader>fd", ":Telescope lsp_definitions<CR>",opts)
 keymap("n", "<leader>fo", ":Telescope oldfiles<CR>",opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>",opts)
 keymap("n", "<leader>fc", ":Telescope git_commits<CR>",opts)
+-- terminal mode
+keymap("n", "<leader>t", ":term<CR>", opts)
+keymap("t", "jk", "<C-\\><C-n>",opts)
 
+-- LSP
+--keymap("n", "<leader>lt", ":lua vim.diagnostic.open_float(0, {scope="line"})<CR>", opts)
+-- compiling and running
+    -- java
+    keymap("n", "<leader>jc", ":!javac %:t<CR>", opts)
+    keymap("n", "<leader>jr", ":!java %:t:r<CR>", opts)
+--Keymapping for lsp
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  end,
+})

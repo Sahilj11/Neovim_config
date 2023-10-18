@@ -36,8 +36,7 @@ lazy.setup({
   -- List of plugins
   ---
   {"nvim-treesitter/nvim-treesitter"},
-  {"loctvl842/monokai-pro.nvim"},
-
+  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
 -- LSP
       -- LSP Support
       { "neovim/nvim-lspconfig" },
@@ -58,7 +57,10 @@ lazy.setup({
       { "hrsh7th/cmp-nvim-lua" },
 
       -- Snippets
-      { "L3MON4D3/LuaSnip", version = "2.*" },
+      { "L3MON4D3/LuaSnip", version = "2.*",
+      dependencies = { "rafamadriz/friendly-snippets" },
+
+      },
       { "rafamadriz/friendly-snippets" },
       { "honza/vim-snippets" },
       -- java_lsp
