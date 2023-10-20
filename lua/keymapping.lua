@@ -51,8 +51,10 @@ keymap("v", ">", ">gv", opts)
 -- Move text 
 keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+--keymap("v", "p", '"_dP', opts)
+keymap("v", "<leader>d", "$", opts)
 keymap("n", "<leader>d", "$", opts)
+keymap("v", "<leader>a", "^", opts)
 keymap("n", "<leader>a", "^", opts)
 
 -- Terminal --
@@ -78,7 +80,6 @@ keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
 keymap("t", "jk", "<C-\\><C-n>",opts)
 
 -- LSP
---keymap("n", "<leader>lt", ":lua vim.diagnostic.open_float(0, {scope="line"})<CR>", opts)
 -- compiling and running
     -- java
 --Keymapping for lsp

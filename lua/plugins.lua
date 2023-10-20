@@ -32,9 +32,7 @@ lazy.path = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 lazy.opts = {}
 
 lazy.setup({
-  ---
   -- List of plugins
-  ---
   {"nvim-treesitter/nvim-treesitter"},
    {
     'windwp/nvim-autopairs',
@@ -70,9 +68,17 @@ lazy.setup({
       { "honza/vim-snippets" },
       -- java_lsp
   {"mfussenegger/nvim-jdtls"},
+  --file navigations
    {
     'nvim-telescope/telescope.nvim', tag = '0.1.4',
 -- or                              , branch = '0.1.x',
       dependencies = { 'nvim-lua/plenary.nvim' }
-    }
+    },
+    -- Git work flow
+    {"tpope/vim-fugitive"},
+    -- colorscheme
+    {
+  "olimorris/onedarkpro.nvim",
+  priority = 1000 -- Ensure it loads first
+    },
 })
