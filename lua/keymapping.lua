@@ -21,7 +21,7 @@ vim.g.maplocalleader = " "
 -- Normal -
 -- Better window navigation
 keymap("n","<leader>v", "<C-w>v", opts)
-keymap("n","<leader>c", "<C-w>s", opts)
+keymap("n","<leader>b", "<C-w>s", opts)
 keymap("n", "<leader>h", "<C-w>h", opts)
 keymap("n", "<leader>j", "<C-w>j", opts)
 keymap("n", "<leader>k", "<C-w>k", opts)
@@ -66,7 +66,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Saving and quiting
 keymap("n" , "<leader>q",":q<CR>", opts)
-keymap("n" , "<leader>w",":w<CR>", opts)
+keymap("n" , "<leader>s",":w<CR>", opts)
 
 -- telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>",opts)
@@ -80,8 +80,6 @@ keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
 keymap("t", "jk", "<C-\\><C-n>",opts)
 
 -- LSP
--- compiling and running
-    -- java
 --Keymapping for lsp
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),

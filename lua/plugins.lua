@@ -39,7 +39,6 @@ lazy.setup({
     event = "InsertEnter",
     opts = {} -- this is equalent to setup({}) function
 },
-  { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
 -- LSP
       -- LSP Support
       { "neovim/nvim-lspconfig" },
@@ -77,8 +76,12 @@ lazy.setup({
     -- Git work flow
     {"tpope/vim-fugitive"},
     -- colorscheme
-    {
-  "olimorris/onedarkpro.nvim",
-  priority = 1000 -- Ensure it loads first
+        {
+  "folke/tokyonight.nvim",
+  lazy = false,
+  priority = 1000,
+  opts = {},
     },
+    -- comments plugins
+    {"tpope/vim-commentary"},
 })
