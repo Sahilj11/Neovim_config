@@ -1,5 +1,6 @@
 require('plugins')
 require('keymapping')
+require('config.harpoon')
 require('config.nvim_cmp')
 require('config.auto_cmp')
 require('colorscheme')

@@ -84,4 +84,5 @@ lazy.setup({
     },
     -- comments plugins
     {"tpope/vim-commentary"},
+    {"ThePrimeagen/harpoon"}
 })
