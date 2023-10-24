@@ -36,6 +36,9 @@ require'lspconfig'.cssls.setup {
 require("lspconfig").html.setup{
   capabilities = capabilities,
 }
+require("lspconfig").clangd.setup{
+    capabilities = Capabilities,
+}
 -- null-ls
 local null_ls = require("null-ls")
 null_ls.setup({

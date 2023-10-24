@@ -83,7 +83,7 @@ keymap("t", "jk", "<C-\\><C-n>",opts)
 keymap("n", "<leader>m",":lua require('harpoon.mark').add_file()<CR>",opts)
 keymap("n", "<C-]>",":lua require('harpoon.ui').nav_next()<CR>",opts)
 keymap("n", "<C-[>",":lua require('harpoon.ui').nav_prev()<CR>",opts)
-keymap("n", "<leader>ht",":lua require('harpoon.ui').toggle_quick_menu()<CR>",opts)
+keymap("n", "<leader>p",":lua require('harpoon.ui').toggle_quick_menu()<CR>",opts)
 -- keymap("n", "hp", require("harpoon.ui").nav_prev)
 -- keymap("n", "hn",require("harpoon.ui").nav_next)
 -- LSP

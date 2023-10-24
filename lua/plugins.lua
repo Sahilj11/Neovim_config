@@ -76,13 +76,23 @@ lazy.setup({
     -- Git work flow
     {"tpope/vim-fugitive"},
     -- colorscheme
-        {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-    },
+    {
+    "ellisonleao/gruvbox.nvim",
+    config = function()
+      require("gruvbox").setup({
+        contrast = "hard",
+         palette_overrides = {
+             gray = "#2ea542"
+        },
+      })
+    end,
+  },
     -- comments plugins
     {"tpope/vim-commentary"},
-    {"ThePrimeagen/harpoon"}
+    {"ThePrimeagen/harpoon"},
+    -- luaLine
+    {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons", opt = true }
+},
 })
