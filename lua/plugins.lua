@@ -85,10 +85,17 @@ lazy.setup({
              gray = "#2ea542"
         },
       })
+        -- add any options here
     end,
   },
     -- comments plugins
-    {"tpope/vim-commentary"},
+{
+    'numToStr/Comment.nvim',
+    opts = {
+    },
+    lazy = false,
+},
+    --file navigation
     {"ThePrimeagen/harpoon"},
     -- luaLine
     {

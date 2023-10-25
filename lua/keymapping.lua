@@ -26,7 +26,6 @@ keymap("n", "<leader>h", "<C-w>h", opts)
 keymap("n", "<leader>j", "<C-w>j", opts)
 keymap("n", "<leader>k", "<C-w>k", opts)
 keymap("n", "<leader>l", "<C-w>l", opts)
-
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
 -- Resize with arrows
@@ -76,18 +75,24 @@ keymap("n", "<leader>fo", ":Telescope oldfiles<CR>",opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>",opts)
 keymap("n", "<leader>fc", ":Telescope git_commits<CR>",opts)
 keymap("n", "<leader>fh", ":Telescope harpoon marks<CR>",opts)
+keymap("n", "<leader>gc", ":Telescope git_commits<CR>",opts)
+keymap("n", "<leader>gb", ":Telescope git_branches<CR>",opts)
+
 -- terminal mode
 keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
 keymap("t", "jk", "<C-\\><C-n>",opts)
+
 -- harpoons
 keymap("n", "<leader>m",":lua require('harpoon.mark').add_file()<CR>",opts)
 keymap("n", "<C-]>",":lua require('harpoon.ui').nav_next()<CR>",opts)
 keymap("n", "<C-[>",":lua require('harpoon.ui').nav_prev()<CR>",opts)
 keymap("n", "<leader>p",":lua require('harpoon.ui').toggle_quick_menu()<CR>",opts)
--- keymap("n", "hp", require("harpoon.ui").nav_prev)
--- keymap("n", "hn",require("harpoon.ui").nav_next)
+
 -- LSP
 --Keymapping for lsp
+vim.keymap.set('n', '<A-h>', vim.diagnostic.open_float)
+vim.keymap.set('n', '<A-j>', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<A-k>', vim.diagnostic.goto_next)
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
