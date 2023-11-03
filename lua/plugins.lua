@@ -76,14 +76,12 @@ lazy.setup({
     -- Git work flow
     {"tpope/vim-fugitive"},
     -- colorscheme
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
     "ellisonleao/gruvbox.nvim",
     config = function()
       require("gruvbox").setup({
         contrast = "hard",
-         palette_overrides = {
-             gray = "#2ea542"
-        },
       })
         -- add any options here
     end,
