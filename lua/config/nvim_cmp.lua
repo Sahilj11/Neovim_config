@@ -28,6 +28,19 @@ require("lspconfig").emmet_language_server.setup({
 require("lspconfig").pyright.setup({
 	capabilities = Capabilities,
 })
+require("lspconfig").rust_analyzer.setup({
+	-- Server-specific settings. See `:help lspconfig-setup`
+	capabilities = Capabilities,
+	cmd = {
+		"rustup",
+		"run",
+		"stable",
+		"rust-analyzer",
+	},
+	settings = {
+		["rust-analyzer"] = {},
+	},
+})
 require("lspconfig").eslint.setup({})
 require("lspconfig").cssls.setup({
 	capabilities = capabilities,
@@ -44,16 +57,17 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	-- function to format on save
 	on_attach = function(client, bufnr)
-		if client.supports_method("textDocument/formatting") then
-			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup,
-				buffer = bufnr,
-				callback = function()
-					vim.lsp.buf.format({ async = false })
-				end,
-			})
-		end
+		-- if client.supports_method("textDocument/formatting") then
+		-- 	vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+		-- 	vim.api.nvim_create_autocmd("BufWritePre", {
+		-- 		group = augroup,
+		-- 		buffer = bufnr,
+		-- 		callback = function()
+		-- 			vim.lsp.buf.format({ async = false })
+		-- 		end,
+		-- 	})
+		-- end
+		client.server_capabilities.semanticTokensProvider = nil
 	end,
 	-- you can reuse a shared lspconfig on_attach callback here
 	sources = {

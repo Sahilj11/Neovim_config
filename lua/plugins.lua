@@ -88,6 +88,7 @@ lazy.setup({
 			-- add any options here
 		end,
 	},
+	{ "tanvirtin/monokai.nvim" },
 	-- comments plugins
 	{
 		"numToStr/Comment.nvim",
