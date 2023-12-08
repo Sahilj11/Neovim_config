@@ -65,7 +65,7 @@ lazy.setup({
 		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 	{ "rafamadriz/friendly-snippets" },
-	{ "honza/vim-snippets" },
+	-- { "honza/vim-snippets" },
 	-- java_lsp
 	{ "mfussenegger/nvim-jdtls" },
 	--file navigations
@@ -78,16 +78,16 @@ lazy.setup({
 	-- Git work flow
 	{ "tpope/vim-fugitive" },
 	-- colorscheme
-	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{
-		"ellisonleao/gruvbox.nvim",
-		config = function()
-			require("gruvbox").setup({
-				contrast = "hard",
-			})
-			-- add any options here
-		end,
-	},
+	-- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	-- {
+	-- 	"ellisonleao/gruvbox.nvim",
+	-- 	config = function()
+	-- 		require("gruvbox").setup({
+	-- 			contrast = "hard",
+	-- 		})
+	-- 		-- add any options here
+	-- 	end,
+	-- },
 	{ "tanvirtin/monokai.nvim" },
 	-- comments plugins
 	{
@@ -98,9 +98,9 @@ lazy.setup({
 	--file navigation
 	{ "ThePrimeagen/harpoon" },
 	-- luaLine
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
-	},
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
+	-- },
 	{ "norcalli/nvim-colorizer.lua" },
 })
