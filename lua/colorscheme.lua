@@ -1,5 +1,6 @@
 -- Default options:
 -- vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme tokyonight-night]])
 -- require("colorizer").setup()
 vim.cmd("set bg=dark")
 vim.cmd("set cursorline")
@@ -57,7 +58,7 @@ vim.cmd("set cursorline")
 -- })
 
 -- setup must be called before loading
-require("monokai").setup({
-	palette = require("monokai").soda,
-	italics = false,
-})
+-- require("monokai").setup({
+-- 	palette = require("monokai").soda,
+-- 	italics = false,
+-- })

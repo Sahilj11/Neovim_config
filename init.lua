@@ -1,5 +1,6 @@
 require("plugins")
 require("keymapping")
+require("nvimtree")
 require("config.terminal")
 require("config.comments")
 require("config.harpoon")

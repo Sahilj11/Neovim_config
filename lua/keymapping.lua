@@ -29,7 +29,7 @@ keymap("n", "<leader>h", "<C-w>h", opts)
 keymap("n", "<leader>j", "<C-w>j", opts)
 keymap("n", "<leader>k", "<C-w>k", opts)
 keymap("n", "<leader>l", "<C-w>l", opts)
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- copying in clipboard
 -- keymap("n", "<leader>y", '"+y')
