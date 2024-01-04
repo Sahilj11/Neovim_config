@@ -72,11 +72,12 @@ null_ls.setup({
 	-- you can reuse a shared lspconfig on_attach callback here
 	sources = {
 		null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.black,
 		-- null_ls.builtins.completion.spell,
-		-- null_ls.builtins.code_actions.gitsigns,
+		null_ls.builtins.code_actions.gitsigns,
 		null_ls.builtins.formatting.prettier,
 	},
 })
 require("mason-null-ls").setup({
-	ensure_installed = { "stylua", "jq", "eslint_d", "prettier" },
+	ensure_installed = { "stylua", "jq", "eslint_d", "prettier","black" },
 })

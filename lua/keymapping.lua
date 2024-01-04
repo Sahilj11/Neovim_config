@@ -88,7 +88,7 @@ keymap("n", "<leader>fw", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 -- formatting
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 -- terminal mode
-keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
+-- keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
 keymap("t", "jk", "<C-\\><C-n>", opts)
 
 -- harpoons

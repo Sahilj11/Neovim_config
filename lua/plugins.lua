@@ -76,6 +76,7 @@ require("lazy").setup({
     },
     -- Git work flow
     { "tpope/vim-fugitive" },
+    {"lewis6991/gitsigns.nvim"},
     -- colorscheme
     {
         "ellisonleao/gruvbox.nvim",
