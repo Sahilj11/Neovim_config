@@ -89,7 +89,9 @@ keymap("n", "<leader>fw", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 -- terminal mode
 -- keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
-keymap("t", "jk", "<C-\\><C-n>", opts)
+
+-- git
+keymap("n","gf", ":0G<CR>",opts)
 
 -- harpoons
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
