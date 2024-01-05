@@ -1,6 +1,6 @@
 -- Default options:
 -- vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[colorscheme tokyonight-night]])
+vim.cmd([[colorscheme citruszest]])
 -- require("colorizer").setup()
 vim.cmd("set bg=dark")
 vim.cmd("set cursorline")

@@ -94,6 +94,11 @@ require("lazy").setup({
         priority = 1000,
         opts = {},
     },
+    {
+        "zootedb0t/citruszest.nvim",
+        lazy = false,
+        priority = 1000,
+    },
     -- comments plugins
     {
         "numToStr/Comment.nvim",

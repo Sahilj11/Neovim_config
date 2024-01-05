@@ -54,8 +54,10 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("n", "J", ":m .+1<CR>==", opts)
+keymap("n", "K", ":m .-2<CR>==", opts)
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 --keymap("v", "p", '"_dP', opts)
 keymap("v", "<leader>d", "$", opts)
@@ -115,7 +117,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<A-k>", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
