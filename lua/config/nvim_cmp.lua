@@ -22,6 +22,9 @@ require("lspconfig").lua_ls.setup({
 require("lspconfig").tsserver.setup({
 	capabilities = Capabilities,
 })
+require("lspconfig").lemminx.setup({
+    capabilities = Capabilities,
+})
 require("lspconfig").emmet_language_server.setup({
 	capabilities = Capabilities,
 })
@@ -50,6 +53,9 @@ require("lspconfig").html.setup({
 })
 require("lspconfig").clangd.setup({
 	capabilities = Capabilities,
+})
+require("lspconfig").tailwindcss.setup({
+    capabilities = Capabilities,
 })
 -- null-ls
 local null_ls = require("null-ls")
