@@ -37,8 +37,8 @@ keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<A-k>", ":vertical resize -3<CR>", opts)
-keymap("n", "<A-h>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-l>", ":vertical resize -3<CR>", opts)
+keymap("n", "<C-h>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -64,13 +64,6 @@ keymap("v", "<leader>d", "$", opts)
 keymap("n", "<leader>d", "$", opts)
 keymap("v", "<leader>a", "^", opts)
 keymap("n", "<leader>a", "^", opts)
-
--- Terminal --
--- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Saving and quiting
 keymap("n", "<leader>q", ":q<CR>", opts)
