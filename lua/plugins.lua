@@ -82,7 +82,16 @@ require("lazy").setup({
         "ellisonleao/gruvbox.nvim",
         config = function()
             require("gruvbox").setup({
-                contrast = "hard",
+                overrides = {
+                    SignColumn = { link = "Normal" },
+                    GruvboxGreenSign = { bg = "" },
+                    GruvboxOrangeSign = { bg = "" },
+                    GruvboxPurpleSign = { bg = "" },
+                    GruvboxYellowSign = { bg = "" },
+                    GruvboxRedSign = { bg = "" },
+                    GruvboxBlueSign = { bg = "" },
+                    GruvboxAquaSign = { bg = "" },
+                },
             })
             -- add any options here
         end,
@@ -99,6 +108,7 @@ require("lazy").setup({
         lazy = false,
         priority = 1000,
     },
+    { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
     -- comments plugins
     {
         "numToStr/Comment.nvim",

@@ -1,8 +1,7 @@
 -- Default options:
--- vim.cmd([[colorscheme gruvbox]])
-vim.cmd([[colorscheme tokyonight]])
+vim.cmd([[colorscheme gruvbox]])
+-- vim.cmd([[colorscheme tokyonight]])
 -- require("colorizer").setup()
-vim.cmd("set bg=dark")
 vim.cmd("set cursorline")
 -- require("catppuccin").setup({
 -- 	flavour = "mocha", -- latte, frappe, macchiato, mocha
