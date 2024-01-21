@@ -94,6 +94,8 @@ keymap("n", "<C-]>", ":lua require('harpoon.ui').nav_next()<CR>", opts)
 keymap("n", "<C-[>", ":lua require('harpoon.ui').nav_prev()<CR>", opts)
 keymap("n", "<leader>p", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 
+-- Fugitive
+keymap("n","mc",":Gvdiffsplit!<CR>",opts)
 -- LSP
 --Keymapping for lsp
 vim.keymap.set("n", "<A-i>", vim.diagnostic.open_float)
