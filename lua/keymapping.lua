@@ -93,6 +93,10 @@ keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<C-]>", ":lua require('harpoon.ui').nav_next()<CR>", opts)
 keymap("n", "<C-[>", ":lua require('harpoon.ui').nav_prev()<CR>", opts)
 keymap("n", "<leader>p", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap("n","<leader>3",":lua require('harpoon.ui').nav_file(3)<CR>",opts)
+keymap("n","<leader>1",":lua require('harpoon.ui').nav_file(1)<CR>",opts)
+keymap("n","<leader>2",":lua require('harpoon.ui').nav_file(2)<CR>",opts)
+keymap("n","<leader>4",":lua require('harpoon.ui').nav_file(4)<CR>",opts)
 
 -- Fugitive
 keymap("n","mc",":Gvdiffsplit!<CR>",opts)
