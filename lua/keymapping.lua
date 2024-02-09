@@ -68,6 +68,8 @@ keymap("n", "<leader>a", "^", opts)
 -- Saving and quiting
 keymap("n", "<leader>q", ":q<CR>", opts)
 keymap("n", "<leader>s", ":w<CR>", opts)
+keymap("n", "<leader>x", ":bd<CR>", opts)
+keymap("v", "<leader>x", ":bd<CR>", opts)
 
 -- telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
