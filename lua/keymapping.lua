@@ -71,8 +71,6 @@ keymap("n", "<leader>s", ":w<CR>", opts)
 keymap("n", "<leader>x", ":bd<CR>", opts)
 keymap("v", "<leader>x", ":bd<CR>", opts)
 
--- terminal mode
-keymap("t","jk","<C-\\><C-N>",opts)
 -- telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
@@ -86,8 +84,8 @@ keymap("n", "<leader>fw", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- formatting
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
--- terminal mode
--- keymap("n", "<leader>t", ":8split | terminal<CR>", opts)
+--terminal 
+-- keymap("n", "<leader>t", "<cmd>lua termCheck()<CR>", opts)
 
 -- git
 keymap("n","gf", ":0G<CR>",opts)
