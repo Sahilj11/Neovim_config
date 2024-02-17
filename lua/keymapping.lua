@@ -32,8 +32,8 @@ keymap("n", "<leader>l", "<C-w>l", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- copying in clipboard
--- keymap("n", "<leader>y", '"+y')
--- keymap("v", "<leader>y", '"+y')
+--keymap('n', '<leader>y', '"+y')
+--keymap('v', '<leader>y', '"+y')
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -71,6 +71,8 @@ keymap("n", "<leader>s", ":w<CR>", opts)
 keymap("n", "<leader>x", ":bd<CR>", opts)
 keymap("v", "<leader>x", ":bd<CR>", opts)
 
+-- terminal mode
+keymap("t","jk","<C-\\><C-N>",opts)
 -- telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)

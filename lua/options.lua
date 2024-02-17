@@ -26,3 +26,10 @@ vim.opt.wrap = false
 -- vim.opt.smartindent = true
 vim.opt.scrolloff = 8
 -- vim.opt.updatetime = 50
+
+vim.opt.fillchars = { fold = " " }
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+vim.g.markdown_folding = 1
+vim.g.markdown_enable_folding = 1
