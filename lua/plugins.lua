@@ -58,16 +58,17 @@ require("lazy").setup({
     { "hrsh7th/cmp-nvim-lua" },
 
     -- Snippets
-   {
-       "L3MON4D3/LuaSnip",
-       version = "2.*",
+    {
+        "L3MON4D3/LuaSnip",
+        version = "2.*",
         dependencies = { "rafamadriz/friendly-snippets" },
-	build = "make install_jsregexp",
+        build = "make install_jsregexp",
     },
     { "rafamadriz/friendly-snippets" },
 
     -- java_lsp
     { "mfussenegger/nvim-jdtls" },
+
     --file navigations
     {
         "nvim-telescope/telescope.nvim",
@@ -176,7 +177,7 @@ require("lazy").setup({
     },
     -- other
     { "norcalli/nvim-colorizer.lua" },
-    {'akinsho/toggleterm.nvim', version = "*", config = true},
+    { "akinsho/toggleterm.nvim",    version = "*", config = true },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
