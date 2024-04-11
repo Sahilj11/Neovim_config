@@ -57,7 +57,11 @@ require("lspconfig").clangd.setup({
     capabilities = Capabilities,
 })
 require("lspconfig").tailwindcss.setup({
-    capabilities = Capabilities,
+    root_dir = function(fname)
+        local root_pattern =
+            require("lspconfig").util.root_pattern("tailwind.config.cjs", "tailwind.config.js", "postcss.config.js")
+        return root_pattern(fname)
+    end,
 })
 -- null-ls
 local null_ls = require("null-ls")
