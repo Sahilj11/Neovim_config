@@ -84,24 +84,37 @@ keymap("n", "<leader>fw", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- formatting
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
---terminal 
+--terminal
 -- keymap("n", "<leader>t", "<cmd>lua termCheck()<CR>", opts)
 
 -- git
-keymap("n","gf", ":0G<CR>",opts)
+keymap("n", "gf", ":0G<CR>", opts)
 -- TODO
 -- harpoons
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<C-]>", ":lua require('harpoon.ui').nav_next()<CR>", opts)
 keymap("n", "<C-[>", ":lua require('harpoon.ui').nav_prev()<CR>", opts)
 keymap("n", "<leader>p", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n","<leader>3",":lua require('harpoon.ui').nav_file(3)<CR>",opts)
-keymap("n","<leader>1",":lua require('harpoon.ui').nav_file(1)<CR>",opts)
-keymap("n","<leader>2",":lua require('harpoon.ui').nav_file(2)<CR>",opts)
-keymap("n","<leader>4",":lua require('harpoon.ui').nav_file(4)<CR>",opts)
+keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
+keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
+
+--refactoring
+vim.keymap.set("x", "<leader>re", ":Refactor extract ")
+vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+
+vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+
+vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+
+vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
+
+vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
+vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
 -- Fugitive
-keymap("n","mc",":Gvdiffsplit!<CR>",opts)
+keymap("n", "mc", ":Gvdiffsplit!<CR>", opts)
 -- LSP
 --Keymapping for lsp
 vim.keymap.set("n", "<A-i>", vim.diagnostic.open_float)

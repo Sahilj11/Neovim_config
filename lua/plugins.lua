@@ -150,6 +150,17 @@ require("lazy").setup({
             -- refer to the configuration section below
         },
     },
+    -- refactoring
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("refactoring").setup()
+        end,
+    },
     -- diagnostics
     {
         "folke/trouble.nvim",
