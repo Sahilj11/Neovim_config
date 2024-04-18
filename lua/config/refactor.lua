@@ -1,4 +1,4 @@
-require('refactoring').setup({
+require("refactoring").setup({
     prompt_func_return_type = {
         go = false,
         java = true,
@@ -22,5 +22,8 @@ require('refactoring').setup({
     printf_statements = {},
     print_var_statements = {},
     show_success_message = false, -- shows a message with information about the refactor on success
-                                  -- i.e. [Refactor] Inlined 3 variable occurrences
+    extract_var_statements = {
+        java = "%s = %s",
+    },
+    -- i.e. [Refactor] Inlined 3 variable occurrences
 })
