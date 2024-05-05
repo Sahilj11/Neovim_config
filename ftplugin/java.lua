@@ -77,10 +77,15 @@ local config = {
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
-        bundles = {},
+        bundles = {
+		-- vim.fn.glob("/home/acerbic/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-0.50.0.jar", 1)
+	},
     },
     capabilities = capabilities,
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
+-- config['on_attach'] = function(client, bufnr)
+--   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+-- end
 require("jdtls").start_or_attach(config)

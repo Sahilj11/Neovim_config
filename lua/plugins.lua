@@ -67,7 +67,7 @@ require("lazy").setup({
     { "rafamadriz/friendly-snippets" },
 
     -- java_lsp
-    { "mfussenegger/nvim-jdtls" },
+    { "mfussenegger/nvim-jdtls",     dependencies = { "mfussenegger/nvim-dap" } },
 
     --file navigations
     {
@@ -193,7 +193,10 @@ require("lazy").setup({
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
-    -- lazy.nvim
+    --debugging
+    { "mfussenegger/nvim-dap" },
+    { "rcarriga/nvim-dap-ui",                dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+        -- lazy.nvim
     -- {
     --     "folke/noice.nvim",
     --     event = "VeryLazy",
