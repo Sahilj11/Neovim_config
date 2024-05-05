@@ -30,10 +30,13 @@ keymap("n", "<leader>j", "<C-w>j", opts)
 keymap("n", "<leader>k", "<C-w>k", opts)
 keymap("n", "<leader>l", "<C-w>l", opts)
 keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
+-- stylua: ignore start
 -- copying in clipboard
---keymap('n', '<leader>y', '"+y')
---keymap('v', '<leader>y', '"+y')
+keymap('n', '<leader>yy', '"+yy',opts)
+keymap('v', '<leader>yy', '"+y',opts)
+keymap('v', '<leader>yp', '"+p',opts)
+keymap('n', '<leader>yp', '"+P',opts)
+-- stylua: ignore end
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -84,8 +87,6 @@ keymap("n", "<leader>fw", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- formatting
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
---terminal
--- keymap("n", "<leader>t", "<cmd>lua termCheck()<CR>", opts)
 
 -- git
 keymap("n", "gf", ":0G<CR>", opts)
@@ -102,18 +103,8 @@ keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
 keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 
---refactoring
--- vim.keymap.set("x", "<leader>re", ":Refactor extract ")
--- vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
---
--- vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
---
--- vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
---
--- vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
---
--- vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
--- vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+-- autocomplete
+keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
 
 -- Fugitive
 keymap("n", "mc", ":Gvdiffsplit!<CR>", opts)

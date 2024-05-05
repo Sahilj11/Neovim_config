@@ -55,6 +55,23 @@ ls.add_snippets("html", {
             i(2),
             i(3)
         })),
+    s("thin:rii", fmt(
+        [[th:{}="${{{}}}"]], {
+            c(1, {
+                t("include"),
+                t("replace"),
+                t("insert"),
+            }),
+            i(2),
+        })),
+    s("th:li", fmt(
+        [[th:{}="@{{{}}}"]], {
+            c(1, {
+                t("href"),
+                t("src")
+            }),
+            i(2)
+        })),
     s("th:ter", fmt(
         [[th:{}="${{{}}}?'{}':'{}'"]], {
             c(1, {

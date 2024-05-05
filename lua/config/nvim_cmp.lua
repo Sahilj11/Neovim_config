@@ -53,6 +53,7 @@ require("lspconfig").cssls.setup({
 require("lspconfig").html.setup({
     capabilities = capabilities,
 })
+require("lspconfig").htmx.setup{}
 require("lspconfig").clangd.setup({
     capabilities = Capabilities,
 })
