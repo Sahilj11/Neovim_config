@@ -1,4 +1,3 @@
--- function lazy.install(path)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -10,25 +9,8 @@ if not vim.loop.fs_stat(lazypath) then
         lazypath,
     })
 end
--- end
 
--- function lazy.setup(plugins)
--- 	if vim.g.plugins_ready then
--- 		return
--- 	end
---
--- 	-- You can "comment out" the line below after lazy.nvim is installed
--- 	-- lazy.install(lazy.path)
---
--- 	vim.opt.rtp:prepend(lazy.path)
---
--- 	require("lazy").setup(plugins, lazy.opts)
--- 	vim.g.plugins_ready = true
--- end
 vim.opt.rtp:prepend(lazypath)
-
---lazy.path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
---lazy.opts = {}
 
 require("lazy").setup({
     -- List of plugins
@@ -150,18 +132,6 @@ require("lazy").setup({
             -- refer to the configuration section below
         },
     },
-    -- refactoring
-    -- {
-    --     "ThePrimeagen/refactoring.nvim",
-    --     dependencies = {
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-treesitter/nvim-treesitter",
-    --     },
-    --     config = function()
-    --         require("refactoring").setup()
-    --     end,
-    -- },
-    -- diagnostics
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -194,7 +164,7 @@ require("lazy").setup({
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     --debugging
-            -- lazy.nvim
+    -- lazy.nvim
     {
         "folke/noice.nvim",
         event = "VeryLazy",
