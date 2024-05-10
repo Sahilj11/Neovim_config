@@ -90,7 +90,7 @@ keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- git
 keymap("n", "gf", ":0G<CR>", opts)
-keymap("n", "<leader>ge", ":2TermExec cmd='lazygit'<CR>", opts)
+-- keymap("n", "<leader>ge", ":2TermExec cmd='lazygit'<CR>", opts)
 
 -- TODO
 -- harpoons
@@ -107,7 +107,7 @@ keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
 
 -- Fugitive
-keymap("n", "mc", ":Gvdiffsplit!<CR>", opts)
+-- keymap("n", "mc", ":Gvdiffsplit!<CR>", opts)
 -- LSP
 --Keymapping for lsp
 vim.keymap.set("n", "<A-i>", vim.diagnostic.open_float)

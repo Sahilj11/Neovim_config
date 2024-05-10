@@ -77,7 +77,6 @@ require("lazy").setup({
         },
     },
     -- Git work flow
-    { "tpope/vim-fugitive" },
     { "lewis6991/gitsigns.nvim" },
     -- colorscheme
     {
@@ -98,19 +97,12 @@ require("lazy").setup({
             -- add any options here
         end,
     },
-    { "tanvirtin/monokai.nvim" },
     {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
         opts = {},
     },
-    {
-        "zootedb0t/citruszest.nvim",
-        lazy = false,
-        priority = 1000,
-    },
-    { "catppuccin/nvim",       name = "catppuccin", priority = 1000 },
     -- comments plugins
     {
         "numToStr/Comment.nvim",
