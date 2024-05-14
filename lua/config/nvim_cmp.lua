@@ -21,6 +21,15 @@ require("lspconfig").lua_ls.setup({
 })
 require("lspconfig").gopls.setup({
     capabilities = Capabilities,
+    settings = {
+        gopls = {
+            completeUnimported = true,
+            usePlaceholders = true,
+            analyses = {
+                unusedparams = true,
+            }
+        },
+    },
 })
 require("lspconfig").tsserver.setup({
     capabilities = Capabilities,
@@ -30,6 +39,29 @@ require("lspconfig").lemminx.setup({
 })
 require("lspconfig").emmet_language_server.setup({
     capabilities = Capabilities,
+    filetypes = {
+		"css",
+		"eruby",
+		"html",
+		"javascript",
+		"javascriptreact",
+		"less",
+		"sass",
+		"typescript",
+		"scss",
+		"svelte",
+		"pug",
+		"typescriptreact",
+		"vue",
+	},
+	init_options = {
+		html = {
+			options = {
+				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+				["bem.enabled"] = true,
+			},
+		},
+	},
 })
 require("lspconfig").pyright.setup({
     capabilities = Capabilities,
@@ -66,7 +98,7 @@ require("lspconfig").tailwindcss.setup({
 })
 -- null-ls
 local null_ls = require("null-ls")
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
     -- function to format on save
     -- on_attach = function(client, bufnr)
@@ -87,7 +119,10 @@ null_ls.setup({
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.google_java_format,
-        -- null_ls.builtins.diagnostics.eslint,
+        null_ls.builtins.formatting.gofumpt,
+        null_ls.builtins.formatting.golines,
+        null_ls.builtins.formatting.goimports_reviser,
+        -- null_ls.builtins.code_actions.eslint,
         -- null_ls.builtins.completion.spell,
         -- null_ls.builtins.diagnostics.checkstyle.with({
         -- 	extra_args = { "-c", "/google_checks.xml" }, -- or "/sun_checks.xml" or path to self written rules

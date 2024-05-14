@@ -38,7 +38,6 @@ require("lazy").setup({
     { "saadparwaiz1/cmp_luasnip" },
     { "hrsh7th/cmp-nvim-lsp" },
     { "hrsh7th/cmp-nvim-lua" },
-
     -- Snippets
     {
         "L3MON4D3/LuaSnip",
@@ -134,8 +133,8 @@ require("lazy").setup({
             -- settings without a patched font or icons
             {
                 icons = false,
-                fold_open = "v", -- icon used for open folds
-                fold_closed = ">", -- icon used for closed folds
+                fold_open = "v",      -- icon used for open folds
+                fold_closed = ">",    -- icon used for closed folds
                 indent_lines = false, -- add an indent guide below the fold icons
                 signs = {
                     -- icons / text used for a diagnostic
@@ -157,19 +156,35 @@ require("lazy").setup({
     },
     --debugging
     -- lazy.nvim
+    -- {
+    -- 	"folke/noice.nvim",
+    -- 	event = "VeryLazy",
+    -- 	opts = {
+    -- 		-- add any options here
+    -- 	},
+    -- 	dependencies = {
+    -- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+    -- 		"MunifTanjim/nui.nvim",
+    -- 		-- OPTIONAL:
+    -- 		--   `nvim-notify` is only needed, if you want to use the notification view.
+    -- 		--   If not available, we use `mini` as the fallback
+    -- 		-- "rcarriga/nvim-notify",
+    -- 	},
+    -- },
     {
-        "folke/noice.nvim",
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
         event = "VeryLazy",
-        opts = {
-            -- add any options here
-        },
-        dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            -- "rcarriga/nvim-notify",
-        },
+        config = function()
+            require("nvim-surround").setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    },
+    {
+        "danymat/neogen",
+        config = true,
+        -- Uncomment next line if you want to follow only stable versions
+        -- version = "*"
     },
 })
