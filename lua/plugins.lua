@@ -78,26 +78,27 @@ require("lazy").setup({
     -- Git work flow
     { "lewis6991/gitsigns.nvim" },
     -- colorscheme
+    -- {
+    --     "ellisonleao/gruvbox.nvim",
+    --     config = function()
+    --         require("gruvbox").setup({
+    --             overrides = {
+    --                 SignColumn = { link = "Normal" },
+    --                 GruvboxGreenSign = { bg = "" },
+    --                 GruvboxOrangeSign = { bg = "" },
+    --                 GruvboxPurpleSign = { bg = "" },
+    --                 GruvboxYellowSign = { bg = "" },
+    --                 GruvboxRedSign = { bg = "" },
+    --                 GruvboxBlueSign = { bg = "" },
+    --                 GruvboxAquaSign = { bg = "" },
+    --             },
+    --         })
+    --         -- add any options here
+    --     end,
+    -- },
+    -- { "overcache/NeoSolarized" },
     {
-        "ellisonleao/gruvbox.nvim",
-        config = function()
-            require("gruvbox").setup({
-                overrides = {
-                    SignColumn = { link = "Normal" },
-                    GruvboxGreenSign = { bg = "" },
-                    GruvboxOrangeSign = { bg = "" },
-                    GruvboxPurpleSign = { bg = "" },
-                    GruvboxYellowSign = { bg = "" },
-                    GruvboxRedSign = { bg = "" },
-                    GruvboxBlueSign = { bg = "" },
-                    GruvboxAquaSign = { bg = "" },
-                },
-            })
-            -- add any options here
-        end,
-    },
-    {
-        "folke/tokyonight.nvim",
+        "craftzdog/solarized-osaka.nvim",
         lazy = false,
         priority = 1000,
         opts = {},
@@ -179,7 +180,7 @@ require("lazy").setup({
             require("nvim-surround").setup({
                 -- Configuration here, or leave empty to use defaults
             })
-        end
+        end,
     },
     {
         "danymat/neogen",
