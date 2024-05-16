@@ -134,8 +134,8 @@ require("lazy").setup({
             -- settings without a patched font or icons
             {
                 icons = false,
-                fold_open = "v",      -- icon used for open folds
-                fold_closed = ">",    -- icon used for closed folds
+                fold_open = "v", -- icon used for open folds
+                fold_closed = ">", -- icon used for closed folds
                 indent_lines = false, -- add an indent guide below the fold icons
                 signs = {
                     -- icons / text used for a diagnostic
@@ -157,21 +157,6 @@ require("lazy").setup({
     },
     --debugging
     -- lazy.nvim
-    -- {
-    -- 	"folke/noice.nvim",
-    -- 	event = "VeryLazy",
-    -- 	opts = {
-    -- 		-- add any options here
-    -- 	},
-    -- 	dependencies = {
-    -- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-    -- 		"MunifTanjim/nui.nvim",
-    -- 		-- OPTIONAL:
-    -- 		--   `nvim-notify` is only needed, if you want to use the notification view.
-    -- 		--   If not available, we use `mini` as the fallback
-    -- 		-- "rcarriga/nvim-notify",
-    -- 	},
-    -- },
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
