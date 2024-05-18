@@ -103,12 +103,6 @@ require("lazy").setup({
         priority = 1000,
         opts = {},
     },
-    -- comments plugins
-    {
-        "numToStr/Comment.nvim",
-        opts = {},
-        lazy = false,
-    },
     --file navigation
     { "ThePrimeagen/harpoon" },
     {
