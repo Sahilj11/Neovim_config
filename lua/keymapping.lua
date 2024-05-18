@@ -112,8 +112,6 @@ keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
 -- LSP
 --Keymapping for lsp
 vim.keymap.set("n", "<C-i>", vim.diagnostic.open_float)
-vim.keymap.set("n", "<C-l>", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "<C-p>", vim.diagnostic.goto_next)
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
