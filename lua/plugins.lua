@@ -22,7 +22,7 @@ require("lazy").setup({
     },
     -- LSP
     -- LSP Support
-    { "neovim/nvim-lspconfig"},
+    { "neovim/nvim-lspconfig" },
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     { "jay-babu/mason-nvim-dap.nvim" },
@@ -77,26 +77,6 @@ require("lazy").setup({
     },
     -- Git work flow
     { "lewis6991/gitsigns.nvim" },
-    -- colorscheme
-    -- {
-    --     "ellisonleao/gruvbox.nvim",
-    --     config = function()
-    --         require("gruvbox").setup({
-    --             overrides = {
-    --                 SignColumn = { link = "Normal" },
-    --                 GruvboxGreenSign = { bg = "" },
-    --                 GruvboxOrangeSign = { bg = "" },
-    --                 GruvboxPurpleSign = { bg = "" },
-    --                 GruvboxYellowSign = { bg = "" },
-    --                 GruvboxRedSign = { bg = "" },
-    --                 GruvboxBlueSign = { bg = "" },
-    --                 GruvboxAquaSign = { bg = "" },
-    --             },
-    --         })
-    --         -- add any options here
-    --     end,
-    -- },
-    -- { "overcache/NeoSolarized" },
     {
         "craftzdog/solarized-osaka.nvim",
         lazy = false,
@@ -112,11 +92,6 @@ require("lazy").setup({
     {
         "folke/todo-comments.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        },
     },
     {
         "folke/trouble.nvim",
@@ -143,8 +118,24 @@ require("lazy").setup({
         },
     },
     -- other
-    { "norcalli/nvim-colorizer.lua" },
-    { "akinsho/toggleterm.nvim",    version = "*", config = true },
+    { "brenoprata10/nvim-highlight-colors" },
+    { "akinsho/toggleterm.nvim",           version = "*", config = true },
+    -- lazy.nvim
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        },
+    },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -165,6 +156,6 @@ require("lazy").setup({
         "danymat/neogen",
         config = true,
         -- Uncomment next line if you want to follow only stable versions
-        -- version = "*"
+        version = "*",
     },
 })

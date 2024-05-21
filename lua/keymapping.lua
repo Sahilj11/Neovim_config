@@ -90,7 +90,8 @@ keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 -- git
 keymap("n", "gf", ":0G<CR>", opts)
 -- keymap("n", "<leader>ge", ":2TermExec cmd='lazygit'<CR>", opts)
-
+-- colors
+keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
 -- TODO
 -- harpoons
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
@@ -123,7 +124,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf }
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "<A-k>", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, opts)
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 		-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
