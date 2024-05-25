@@ -1,5 +1,7 @@
 local workspace_dir = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local path_to_lombok = "/home/acerbic/.local/share/nvim/mason/packages/jdtls/lombok.jar"
+local path_to_java_dap = "/home/acerbic/.local/share/nvim/mason/share/java-debug-adapter/"
+local jdtlsS = require("jdtls")
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -65,7 +67,9 @@ local config = {
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
     settings = {
-        java = {},
+        java = {
+            -- inlayhints:true,
+        },
         -- this is end initial
     },
 
@@ -78,14 +82,30 @@ local config = {
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
         bundles = {
-		-- vim.fn.glob("/home/acerbic/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-0.50.0.jar", 1)
-	},
+            vim.fn.glob(
+                path_to_java_dap .. "com.microsoft.java.debug.plugin.jar",
+                1
+            ),
+        },
     },
+    -- init_options = {
+    --     bundles = {
+    --         -- vim.fn.glob("/home/acerbic/.local/share/nvim/mason/packages/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-0.50.0.jar", 1)
+    --     },
+    -- },
     capabilities = capabilities,
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
--- config['on_attach'] = function(client, bufnr)
---   require('jdtls').setup_dap({ hotcodereplace = 'auto' })
--- end
-require("jdtls").start_or_attach(config)
+config['on_attach'] = function(client, bufnr)
+  jdtlsS.setup_dap({ hotcodereplace = 'auto' })
+  require('jdtls.dap').setup_dap_main_class_configs()
+end
+-- jdtlsS.setup({
+--     handlers = {
+-- 		-- By assigning an empty function, you can remove the notifications
+-- 		-- printed to the cmd
+-- 		["$/progress"] = function(_, result, ctx) end,
+-- 	},
+-- })
+jdtlsS.start_or_attach(config)

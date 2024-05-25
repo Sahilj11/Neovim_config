@@ -80,8 +80,8 @@ keymap("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
 keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope harpoon marks<CR>", opts)
-keymap("n", "<leader>gc", ":Telescope git_commits<CR>", opts)
-keymap("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
+-- keymap("n", "<leader>gc", ":Telescope git_commits<CR>", opts)
+-- keymap("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
 keymap("n", "<leader>fw", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- formatting
@@ -89,14 +89,23 @@ keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- git
 keymap("n", "gf", ":0G<CR>", opts)
--- keymap("n", "<leader>ge", ":2TermExec cmd='lazygit'<CR>", opts)
+keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
+keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", opts)
+keymap("n", "<C-]>", ":Gitsigns next_hunk<CR>", opts)
+keymap("n", "<C-[>", ":Gitsigns prev_hunk<CR>", opts)
+keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+
 -- colors
 keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
--- TODO
+
+--debugging
+keymap("n", "<leader>gb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>gc", ":lua require'dap'.continue()<CR>", opts)
+
+-- terminal
+keymap("t", "<C-t>", "<C-\\><C-n>", opts)
 -- harpoons
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "<C-]>", ":lua require('harpoon.ui').nav_next()<CR>", opts)
-keymap("n", "<C-[>", ":lua require('harpoon.ui').nav_prev()<CR>", opts)
 keymap("n", "<leader>p", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
 keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
@@ -114,27 +123,69 @@ keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
 --Keymapping for lsp
 vim.keymap.set("n", "<C-i>", vim.diagnostic.open_float)
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	callback = function(ev)
-		-- Enable completion triggered by <c-x><c-o>
-		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+    group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+    callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-		-- Buffer local mappings.
-		-- See `:help vim.lsp.*` for documentation on any of the below functions
-		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		-- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>wl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
-		vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-		vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-	end,
+        -- Buffer local mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local opts = { buffer = ev.buf }
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+        vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set("n", "<leader>wl", function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end, opts)
+        vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
+        vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    end,
 })
+
+function get_spring_boot_runner(profile, debug)
+    local debug_param = ""
+    if debug then
+        debug_param =
+        ' -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" '
+    end
+
+    local profile_param = ""
+    if profile then
+        profile_param = " -Dspring-boot.run.profiles=" .. profile .. " "
+    end
+
+    return "mvn spring-boot:run " .. profile_param .. debug_param
+end
+
+function run_spring_boot(debug)
+    vim.cmd("term " .. get_spring_boot_runner(method_name, debug))
+end
+
+vim.keymap.set("n", "<leader>rs", function()
+    run_spring_boot()
+end, opts)
+vim.keymap.set("n", "<leader>Rs", function()
+    run_spring_boot(true)
+end, opts)
+
+function attach_to_debug()
+    local dap = require("dap")
+    dap.configurations.java = {
+        {
+            type = "java",
+            request = "attach",
+            name = "Attach to the process",
+            hostName = "localhost",
+            port = "5005",
+        },
+    }
+    dap.continue()
+end
+
+keymap("n", "<leader>rd", ":lua attach_to_debug()<CR>", opts)

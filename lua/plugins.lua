@@ -49,7 +49,7 @@ require("lazy").setup({
 
     -- java_lsp
     { "mfussenegger/nvim-jdtls",     dependencies = { "mfussenegger/nvim-dap" } },
-
+    {"rcarriga/cmp-dap"},
     --file navigations
     {
         "nvim-telescope/telescope.nvim",
@@ -122,25 +122,13 @@ require("lazy").setup({
     { "akinsho/toggleterm.nvim",           version = "*", config = true },
     -- lazy.nvim
     {
-        "folke/noice.nvim",
-        event = "VeryLazy",
-        opts = {
-            -- add any options here
-        },
-        dependencies = {
-            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-            "MunifTanjim/nui.nvim",
-            -- OPTIONAL:
-            --   `nvim-notify` is only needed, if you want to use the notification view.
-            --   If not available, we use `mini` as the fallback
-            "rcarriga/nvim-notify",
-        },
-    },
-    {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     --debugging
+    { "mfussenegger/nvim-dap" },
+    { "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" } },
+    {"theHamsta/nvim-dap-virtual-text"},
     -- lazy.nvim
     {
         "kylechui/nvim-surround",
@@ -152,10 +140,26 @@ require("lazy").setup({
             })
         end,
     },
+    -- code docs
     {
         "danymat/neogen",
         config = true,
         -- Uncomment next line if you want to follow only stable versions
         version = "*",
+    },
+
+    -- keymappings
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
     },
 })

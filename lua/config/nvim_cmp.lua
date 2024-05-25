@@ -114,7 +114,6 @@ null_ls.setup({
     -- 	-- end
     -- 	client.server_capabilities.semanticTokensProvider = nil
     -- end,
-    -- you can reuse a shared lspconfig on_attach callback here
     sources = {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.formatting.black,
@@ -122,6 +121,7 @@ null_ls.setup({
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.golines,
         null_ls.builtins.formatting.goimports_reviser,
+        -- null_ls.builtins.diagnostics.eslint_d,
         -- null_ls.builtins.code_actions.eslint,
         -- null_ls.builtins.completion.spell,
         -- null_ls.builtins.diagnostics.checkstyle.with({
