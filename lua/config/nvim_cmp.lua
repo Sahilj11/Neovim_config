@@ -27,7 +27,7 @@ require("lspconfig").gopls.setup({
             usePlaceholders = true,
             analyses = {
                 unusedparams = true,
-            }
+            },
         },
     },
 })
@@ -40,28 +40,28 @@ require("lspconfig").lemminx.setup({
 require("lspconfig").emmet_language_server.setup({
     capabilities = Capabilities,
     filetypes = {
-		"css",
-		"eruby",
-		"html",
-		"javascript",
-		"javascriptreact",
-		"less",
-		"sass",
-		"typescript",
-		"scss",
-		"svelte",
-		"pug",
-		"typescriptreact",
-		"vue",
-	},
-	init_options = {
-		html = {
-			options = {
-				-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
-				["bem.enabled"] = true,
-			},
-		},
-	},
+        "css",
+        "eruby",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "less",
+        "sass",
+        "typescript",
+        "scss",
+        "svelte",
+        "pug",
+        "typescriptreact",
+        "vue",
+    },
+    init_options = {
+        html = {
+            options = {
+                -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                ["bem.enabled"] = true,
+            },
+        },
+    },
 })
 require("lspconfig").pyright.setup({
     capabilities = Capabilities,
