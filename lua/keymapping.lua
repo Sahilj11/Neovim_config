@@ -8,7 +8,6 @@ local keymap = vim.api.nvim_set_keymap
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -61,7 +60,6 @@ keymap("n", "K", ":m .-2<CR>==", opts)
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
---keymap("v", "p", '"_dP', opts)
 keymap("v", "<leader>d", "$", opts)
 keymap("n", "<leader>d", "$", opts)
 keymap("v", "<leader>a", "^", opts)
@@ -80,8 +78,6 @@ keymap("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
 keymap("n", "<leader>fo", ":Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope harpoon marks<CR>", opts)
--- keymap("n", "<leader>gc", ":Telescope git_commits<CR>", opts)
--- keymap("n", "<leader>gb", ":Telescope git_branches<CR>", opts)
 keymap("n", "<leader>fw", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- formatting
@@ -102,8 +98,10 @@ keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
 keymap("n", "<leader>gb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
 keymap("n", "<leader>gc", ":lua require'dap'.continue()<CR>", opts)
 keymap("n", "<leader>gq", ":lua require'dapui'.close()<CR>",opts)
+
 -- terminal
 keymap("t", "<C-t>", "<C-\\><C-n>", opts)
+
 -- harpoons
 keymap("n", "<leader>m", ":lua require('harpoon.mark').add_file()<CR>", opts)
 keymap("n", "<leader>p", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
@@ -111,12 +109,13 @@ keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
 keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
 keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
 keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
+
 -- neogen
 keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
 keymap("n", "<Leader>nc", ":lua require('neogen').generate({type='class'})<CR>", opts)
+
 -- autocomplete
 keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
-
 -- Fugitive
 -- keymap("n", "mc", ":Gvdiffsplit!<CR>", opts)
 -- LSP
@@ -133,7 +132,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<S-d>", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
         -- vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
         vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)

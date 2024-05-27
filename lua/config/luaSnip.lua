@@ -3,15 +3,14 @@ local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
 local c = ls.choice_node
--- local extras = require("luasnip.extras")
--- local rep = extras.rep
 local fmt = require("luasnip.extras.fmt").fmt
+local rep = require("luasnip.extras").rep
 -- local fmt = require("luasnip.extras.fmt").fmt
-vim.keymap.set({ "i", "s" }, "<A-n>", function()
-    if ls.choice_active() then
-        ls.change_choice(1)
-    end
-end)
+-- vim.keymap.set({ "i", "s" }, "<A-n>", function()
+--     if ls.choice_active() then
+--         ls.change_choice(1)
+--     end
+-- end)
 -- stylua: ignore start
 --thymeleaf html
 ls.add_snippets("html", {
