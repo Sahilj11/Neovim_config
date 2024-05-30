@@ -21,19 +21,19 @@ keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-s>", "<C-u>zz", opts)
 
 -- Better window navigation
-keymap("n", "<leader>v", "<C-w>v", opts)
-keymap("n", "<leader>b", "<C-w>s", opts)
-keymap("n", "<leader>h", "<C-w>h", opts)
-keymap("n", "<leader>j", "<C-w>j", opts)
-keymap("n", "<leader>k", "<C-w>k", opts)
-keymap("n", "<leader>l", "<C-w>l", opts)
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+-- keymap("n", "<leader>v", "<C-w>v", opts)
+-- keymap("n", "<leader>b", "<C-w>s", opts)
+-- keymap("n", "<leader>h", "<C-w>h", opts)
+-- keymap("n", "<leader>j", "<C-w>j", opts)
+-- keymap("n", "<leader>k", "<C-w>k", opts)
+-- keymap("n", "<leader>l", "<C-w>l", opts)
+-- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 -- stylua: ignore start
 -- copying in clipboard
-keymap('n', '<leader>yy', '"+yy', opts)
+-- keymap('n', '<leader>yy', '"+yy', opts)
 keymap('v', '<leader>yy', '"+y', opts)
 keymap('v', '<leader>yp', '"+p', opts)
-keymap('n', '<leader>yp', '"+P', opts)
+-- keymap('n', '<leader>yp', '"+P', opts)
 -- stylua: ignore end
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -61,9 +61,9 @@ keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 
 keymap("v", "<leader>d", "$", opts)
-keymap("n", "<leader>d", "$", opts)
+-- keymap("n", "<leader>d", "$", opts)
 keymap("v", "<leader>a", "^", opts)
-keymap("n", "<leader>a", "^", opts)
+-- keymap("n", "<leader>a", "^", opts)
 
 -- Saving and quiting
 keymap("n", "<leader>q", ":q<CR>", opts)
@@ -114,10 +114,6 @@ keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
 keymap("n", "<Leader>nc", ":lua require('neogen').generate({type='class'})<CR>", opts)
 
--- autocomplete
-keymap("n", "<leader>nd", ":NoiceDismiss<CR>", opts)
--- Fugitive
--- keymap("n", "mc", ":Gvdiffsplit!<CR>", opts)
 -- LSP
 --Keymapping for lsp
 vim.keymap.set("n", "<C-i>", vim.diagnostic.open_float)

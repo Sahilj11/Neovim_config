@@ -30,7 +30,12 @@ require("lazy").setup({
     { "nvimtools/none-ls.nvim" },
     { "jay-babu/mason-null-ls.nvim" },
     -- Autocompletion
-    { "hrsh7th/nvim-cmp" },
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "mlaursen/vim-react-snippets",
+        }
+    },
     { "hrsh7th/cmp-buffer" },
     { "hrsh7th/cmp-path" },
     { "saadparwaiz1/cmp_luasnip" },
@@ -47,7 +52,7 @@ require("lazy").setup({
 
     -- java_lsp
     { "mfussenegger/nvim-jdtls",     dependencies = { "mfussenegger/nvim-dap" } },
-    {"rcarriga/cmp-dap"},
+    { "rcarriga/cmp-dap" },
     --file navigations
     {
         "nvim-telescope/telescope.nvim",
