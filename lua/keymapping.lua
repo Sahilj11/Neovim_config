@@ -85,19 +85,19 @@ keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 
 -- git
 keymap("n", "gf", ":0G<CR>", opts)
-keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
-keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", opts)
+-- keymap("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", opts)
+-- keymap("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", opts)
 keymap("n", "<C-]>", ":Gitsigns next_hunk<CR>", opts)
 keymap("n", "<C-[>", ":Gitsigns prev_hunk<CR>", opts)
-keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
+-- keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
 
 -- colors
 keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
 
 --debugging
-keymap("n", "<leader>gb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
-keymap("n", "<leader>gc", ":lua require'dap'.continue()<CR>", opts)
-keymap("n", "<leader>gq", ":lua require'dapui'.close()<CR>",opts)
+keymap("n", "<leader>cb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<leader>cc", ":lua require'dap'.continue()<CR>", opts)
+keymap("n", "<leader>cq", ":lua require'dapui'.close()<CR>",opts)
 
 -- terminal
 keymap("t", "<C-t>", "<C-\\><C-n>", opts)
