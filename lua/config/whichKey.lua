@@ -29,3 +29,8 @@ wk.register({
     d={ "$", "Go to end of line"},
     a={ "^", "Go to start of line"}
 }, { prefix = "<leader>" })
+
+
+-- Key mapping to call the function
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>FzfLua files<CR>', { noremap = true, silent = true })
+

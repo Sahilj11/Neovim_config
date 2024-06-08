@@ -101,12 +101,12 @@ ls.add_snippets("javascript", {
               }},
           }},
     ]], {
-        i(1, "element"),     -- Placeholder for the element selector
-        i(2, "top top"),     -- Placeholder for start value
+        i(1, "element"),       -- Placeholder for the element selector
+        i(2, "top top"),       -- Placeholder for start value
         i(3, "center center"), -- Placeholder for end value
-        i(4, "true"),        -- Placeholder for scrub value
-        i(5, "true"),        -- Placeholder for pin value
-        i(6, "3rem"),        -- Placeholder for font size
+        i(4, "true"),          -- Placeholder for scrub value
+        i(5, "true"),          -- Placeholder for pin value
+        i(6, "3rem"),          -- Placeholder for font size
     })),
     s("tl.to", fmt([[
       tl.to("{}", {{
@@ -123,16 +123,16 @@ ls.add_snippets("javascript", {
       }});
     ]], {
         i(1, ".element"), -- Placeholder for the element selector
-        i(2, "1"),      -- Placeholder for duration
-        i(3, "0"),      -- Placeholder for x value
-        i(4, "0"),      -- Placeholder for y value
-        i(5, "1"),      -- Placeholder for opacity
-        i(6, "1"),      -- Placeholder for scale
-        i(7, "0"),      -- Placeholder for rotation
-        i(8, "#ffffff"), -- Placeholder for backgroundColor
-        i(9, "0%"),     -- Placeholder for borderRadius
-        i(10, "0"),     -- Placeholder for delay
-        i(11, "none"),  -- Placeholder for ease
+        i(2, "1"),        -- Placeholder for duration
+        i(3, "0"),        -- Placeholder for x value
+        i(4, "0"),        -- Placeholder for y value
+        i(5, "1"),        -- Placeholder for opacity
+        i(6, "1"),        -- Placeholder for scale
+        i(7, "0"),        -- Placeholder for rotation
+        i(8, "#ffffff"),  -- Placeholder for backgroundColor
+        i(9, "0%"),       -- Placeholder for borderRadius
+        i(10, "0"),       -- Placeholder for delay
+        i(11, "none"),    -- Placeholder for ease
     })),
 
     s("tl.from", fmt([[
@@ -150,16 +150,16 @@ ls.add_snippets("javascript", {
       }});
     ]], {
         i(1, ".element"), -- Placeholder for the element selector
-        i(2, "1"),      -- Placeholder for duration
-        i(3, "0"),      -- Placeholder for x value
-        i(4, "0"),      -- Placeholder for y value
-        i(5, "0"),      -- Placeholder for opacity
-        i(6, "1"),      -- Placeholder for scale
-        i(7, "0"),      -- Placeholder for rotation
-        i(8, "#000000"), -- Placeholder for backgroundColor
-        i(9, "0%"),     -- Placeholder for borderRadius
-        i(10, "0"),     -- Placeholder for delay
-        i(11, "none"),  -- Placeholder for ease
+        i(2, "1"),        -- Placeholder for duration
+        i(3, "0"),        -- Placeholder for x value
+        i(4, "0"),        -- Placeholder for y value
+        i(5, "0"),        -- Placeholder for opacity
+        i(6, "1"),        -- Placeholder for scale
+        i(7, "0"),        -- Placeholder for rotation
+        i(8, "#000000"),  -- Placeholder for backgroundColor
+        i(9, "0%"),       -- Placeholder for borderRadius
+        i(10, "0"),       -- Placeholder for delay
+        i(11, "none"),    -- Placeholder for ease
     })),
 
     s("tl.fromTo", fmt([[
@@ -185,23 +185,87 @@ ls.add_snippets("javascript", {
       }});
     ]], {
         i(1, ".element"), -- Placeholder for the element selector
-        i(2, "0"),      -- Placeholder for starting x value
-        i(3, "0"),      -- Placeholder for starting y value
-        i(4, "0"),      -- Placeholder for starting opacity
-        i(5, "1"),      -- Placeholder for starting scale
-        i(6, "0"),      -- Placeholder for starting rotation
-        i(7, "#000000"), -- Placeholder for starting backgroundColor
-        i(8, "0%"),     -- Placeholder for starting borderRadius
-        i(9, "1"),      -- Placeholder for duration
-        i(10, "100"),   -- Placeholder for ending x value
-        i(11, "100"),   -- Placeholder for ending y value
-        i(12, "1"),     -- Placeholder for ending opacity
-        i(13, "1"),     -- Placeholder for ending scale
-        i(14, "360"),   -- Placeholder for ending rotation
+        i(2, "0"),        -- Placeholder for starting x value
+        i(3, "0"),        -- Placeholder for starting y value
+        i(4, "0"),        -- Placeholder for starting opacity
+        i(5, "1"),        -- Placeholder for starting scale
+        i(6, "0"),        -- Placeholder for starting rotation
+        i(7, "#000000"),  -- Placeholder for starting backgroundColor
+        i(8, "0%"),       -- Placeholder for starting borderRadius
+        i(9, "1"),        -- Placeholder for duration
+        i(10, "100"),     -- Placeholder for ending x value
+        i(11, "100"),     -- Placeholder for ending y value
+        i(12, "1"),       -- Placeholder for ending opacity
+        i(13, "1"),       -- Placeholder for ending scale
+        i(14, "360"),     -- Placeholder for ending rotation
         i(15, "#ffffff"), -- Placeholder for ending backgroundColor
-        i(16, "50%"),   -- Placeholder for ending borderRadius
-        i(17, "0"),     -- Placeholder for delay
-        i(18, "none"),  -- Placeholder for ease
+        i(16, "50%"),     -- Placeholder for ending borderRadius
+        i(17, "0"),       -- Placeholder for delay
+        i(18, "none"),    -- Placeholder for ease
     })),
 })
+
+ls.add_snippets("java", {
+    s("getc", fmt([[
+       @GetMapping(path="{}")
+       public {} {}({}){{
+           {}
+       }}
+    ]], {
+        i(1, "url"),
+        i(2, "void"),
+        i(3, "name"),
+        i(4, "variable"),
+        i(5),
+    })),
+    s("postc", fmt([[
+       @PostMapping(path="{}")
+       public {} {}({}){{
+           {}
+       }}
+    ]], {
+        i(1, "url"),
+        i(2, "void"),
+        i(3, "name"),
+        i(4, "variable"),
+        i(5),
+    })),
+    s("putc", fmt([[
+       @PutMapping(path="{}")
+       public {} {}({}){{
+           {}
+       }}
+    ]], {
+        i(1, "url"),
+        i(2, "void"),
+        i(3, "name"),
+        i(4, "variable"),
+        i(5),
+    })),
+    s("delc", fmt([[
+       @DeleteMapping(path="{}")
+       public {} {}({}){{
+           {}
+       }}
+    ]], {
+        i(1, "url"),
+        i(2, "void"),
+        i(3, "name"),
+        i(4, "variable"),
+        i(5),
+    })),
+    -- s("contr",fmt([[
+    --     @Controller
+    --     public 
+    -- ]]))
+})
 -- stylua: ignore end
+ls.add_snippets("css",{
+    s("star",fmt([[
+        *{{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }}
+    ]],{})),
+})

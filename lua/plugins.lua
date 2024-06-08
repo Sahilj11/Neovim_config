@@ -78,6 +78,15 @@ require("lazy").setup({
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
     },
+    {
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            -- calling `setup` is optional for customization
+            require("fzf-lua").setup({})
+        end
+    },
     -- Git work flow
     { "lewis6991/gitsigns.nvim" },
     {
@@ -106,8 +115,8 @@ require("lazy").setup({
             -- settings without a patched font or icons
             {
                 icons = false,
-                fold_open = "v", -- icon used for open folds
-                fold_closed = ">", -- icon used for closed folds
+                fold_open = "v",      -- icon used for open folds
+                fold_closed = ">",    -- icon used for closed folds
                 indent_lines = false, -- add an indent guide below the fold icons
                 signs = {
                     -- icons / text used for a diagnostic

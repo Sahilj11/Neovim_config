@@ -51,7 +51,7 @@ cmp.setup({
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
-        { name = "nvim_lsp" },
+        { name = "nvim_lsp" ,max_item_count=200},
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = "luasnip" }, -- For luasnip users.
         { name = "path" },
@@ -73,7 +73,7 @@ cmp.setup({
 --         { name = "dap" },
 --     },
 -- })
-require("luasnip.loaders.from_vscode").lazy_load()
 require("vim-react-snippets").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load()
 -- require("luasnip").filetype_extend("javascript", { "javascriptreact" })
 -- require("luasnip").filetype_extend("javascript", { "html" })
