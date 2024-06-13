@@ -61,6 +61,11 @@ cmp.setup({
         { name = "buffer" },
     }),
 })
+vim.keymap.set({"i", "s"}, "<c-e>", function()
+	if luasnip.choice_active() then
+		luasnip.change_choice(1)
+	end
+end, {silent = true})
 -- cmp.setup({
 --     enabled = function()
 --         return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"

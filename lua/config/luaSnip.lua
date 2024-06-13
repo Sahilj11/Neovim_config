@@ -28,17 +28,19 @@ ls.add_snippets("html", {
         t('}"'),
     }),
     s("th:e", {
-        t('th:each="'),
+        t('<div th:each="'),
         i(1),
         t(":${"),
         i(2),
-        t('}"'),
+        t('}">'),
+        i(3),
+        t('</div>')
     }),
-    s("th:if", {
-        t('th:if="${'),
-        i(1),
-        t('}"'),
-    }),
+    -- s("th:if", {
+    --     t('th:if="${'),
+    --     i(1),
+    --     t('}"'),
+    -- }),
     s("th:un", {
         t('th:unless="${'),
         i(1),
@@ -81,6 +83,68 @@ ls.add_snippets("html", {
             i(3),
             i(4),
         })),
+        -- th:if
+    s("th:if", { t('<div th:if="'), i(1, "condition"), t('">'), i(0), t("</div>") }),
+
+    -- th:unless
+    s("th:unless", { t('<div th:unless="'), i(1, "condition"), t('">'), i(0), t("</div>") }),
+
+    -- th:text
+    s("th:text", { t('<span th:text="'), i(1, "${value}"), t('">'), i(0), t("</span>") }),
+
+    -- th:utext
+    s("th:utext", { t('<span th:utext="'), i(1, "${value}"), t('">'), i(0), t("</span>") }),
+
+    -- th:object
+    s("th:object", { t('<form th:object="${'), i(1, "object"), t('}">'), i(0), t("</form>") }),
+
+    -- th:action
+    s("th:action", { t('<form th:action="@{'), i(1, "/actionUrl"), t('}">'), i(0), t("</form>") }),
+
+    -- th:href
+    s("th:href", { t('<a th:href="@{'), i(1, "/url"), t('}">'), i(0), t("</a>") }),
+
+    -- th:src
+    s("th:src", { t('<img th:src="@{'), i(1, "/imageUrl"), t('}" alt="'), i(2, "alt text"), t('"/>') }),
+
+    -- th:class
+    s("th:class", { t('<div th:class="'), i(1, "classCondition"), t('">'), i(0), t("</div>") }),
+
+    -- th:style
+    s("th:style", { t('<div th:style="'), i(1, "'display: ' + condition + ';'"), t('">'), i(0), t("</div>") }),
+
+    -- th:value
+    s("th:value", { t('<input type="text" th:value="'), i(1, "${value}"), t('" />') }),
+
+    -- th:checked
+    s("th:checked", { t('<input type="checkbox" th:checked="'), i(1, "isChecked ? 'checked' : null"), t('" />') }),
+
+    -- th:selected
+    s("th:selected", { t('<option th:selected="'), i(1, "isSelected ? 'selected' : null"), t('">'), i(0), t("</option>") }),
+
+    -- th:attr
+    s("th:attr", { t('<div th:attr="'), i(1, "attr"), t('">'), i(0), t("</div>") }),
+
+    -- th:switch
+    s("th:switch", { t('<div th:switch="'), i(1, "${variable}"), t('">'), i(0), t("</div>") }),
+
+    -- th:case
+    s("th:case", { t('<div th:case="'), i(1, "'condition'"), t('">'), i(0), t("</div>") }),
+
+    -- th:inline
+    s("th:inline", { t('<div th:inline="'), i(1, "javascript"), t('">'), i(0), t("</div>") }),
+
+    -- th:assert
+    s("th:assert", { t('<div th:assert="'), i(1, "assertion"), t('">'), i(0), t("</div>") }),
+
+    -- th:attrappend
+    s("th:attrappend", { t('<div th:attrappend="'), i(1, "attr + ' value'"), t('">'), i(0), t("</div>") }),
+
+    -- th:attrprepend
+    s("th:attrprepend", { t('<div th:attrprepend="'), i(1, "attr + ' value'"), t('">'), i(0), t("</div>") }),
+
+    -- th:with
+    s("th:with", { t('<div th:with="'), i(1, "varName = value"), t('">'), i(0), t("</div>") }),
 })
 ls.add_snippets("javascript", {
     s("taction", fmt([[toggleActions:"{} {} {} {}"]], {

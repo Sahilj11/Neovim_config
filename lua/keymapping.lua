@@ -74,6 +74,7 @@ keymap("v", "<leader>x", ":bd<CR>", opts)
 -- telescope
 -- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":FzfLua live_grep<CR>", opts)
+keymap("n", "<leader>ca", ":FzfLua lsp_code_actions<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
 keymap("n", "<leader>fo", ":FzfLua oldfiles<CR>", opts)
 keymap("n", "<leader>fb", ":FzfLua buffers<CR>", opts)
@@ -138,7 +139,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end, opts)
         vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+        -- vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     end,
 })
@@ -184,3 +185,48 @@ function attach_to_debug()
 end
 
 keymap("n", "<leader>rd", ":lua attach_to_debug()<CR>", opts)
+-- Function to toggle comment for JSX tags
+function toggle_jsx_comment()
+  -- Get the current mode: normal (n) or visual (v)
+  local mode = vim.fn.mode()
+
+  -- Define the JSX comment syntax
+  local comment_start = "{/*"
+  local comment_end = "*/}"
+
+  -- Function to toggle comment on a single line
+  local function toggle_line_comment(line)
+    if string.match(line, "{/%*.*%*/}") then
+      -- Remove the comment
+      line = string.gsub(line, "{/%*", "")
+      line = string.gsub(line, "%*/}", "")
+    else
+      -- Add the comment
+      line = comment_start .. line .. comment_end
+    end
+    return line
+  end
+
+  -- Toggle comment based on the mode
+  if mode == 'n' then
+    -- Normal mode: toggle comment for the current line
+    local line_num = vim.fn.line('.')
+    local line = vim.fn.getline(line_num)
+    local new_line = toggle_line_comment(line)
+    vim.fn.setline(line_num, new_line)
+  elseif mode == 'v' then
+    -- Visual mode: toggle comment for each selected line
+    local start_line, end_line = vim.fn.line("'<"), vim.fn.line("'>")
+    for line_num = start_line, end_line do
+      local line = vim.fn.getline(line_num)
+      local new_line = toggle_line_comment(line)
+      vim.fn.setline(line_num, new_line)
+    end
+    -- Exit visual mode and return to normal mode
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n', false)
+  end
+end
+
+-- Key mappings to toggle JSX comment in normal and visual mode
+vim.api.nvim_set_keymap('n', '<leader>rc', ':lua toggle_jsx_comment()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>rc', ":lua toggle_jsx_comment()<CR>", { noremap = true, silent = true })
