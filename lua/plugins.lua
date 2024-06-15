@@ -89,7 +89,6 @@ require("lazy").setup({
     },
     -- Git work flow
     { "lewis6991/gitsigns.nvim" },
-    {"tpope/vim-fugitive"},
     {
         "craftzdog/solarized-osaka.nvim",
         lazy = false,
