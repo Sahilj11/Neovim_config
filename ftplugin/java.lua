@@ -69,6 +69,12 @@ local config = {
     settings = {
         java = {
             -- inlayhints:true,
+            format={
+                settings={
+                    url="~/.local/share/nvim/mason/bin/google-java-format",
+                    profile="GoogleStyle"
+                }
+            }
         },
         -- this is end initial
     },
