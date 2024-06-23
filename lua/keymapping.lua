@@ -144,31 +144,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-function get_spring_boot_runner(profile, debug)
-    local debug_param = ""
-    if debug then
-        debug_param =
-        ' -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" '
-    end
+-- function get_spring_boot_runner(profile, debug)
+--     local debug_param = ""
+--     if debug then
+--         debug_param =
+--         ' -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" '
+--     end
+--
+--     local profile_param = ""
+--     if profile then
+--         profile_param = " -Dspring-boot.run.profiles=" .. profile .. " "
+--     end
+--
+--     return "mvn spring-boot:run " .. profile_param .. debug_param
+-- end
+--
+-- function run_spring_boot(debug)
+--     vim.cmd("term " .. get_spring_boot_runner(method_name, debug))
+-- end
 
-    local profile_param = ""
-    if profile then
-        profile_param = " -Dspring-boot.run.profiles=" .. profile .. " "
-    end
-
-    return "mvn spring-boot:run " .. profile_param .. debug_param
-end
-
-function run_spring_boot(debug)
-    vim.cmd("term " .. get_spring_boot_runner(method_name, debug))
-end
-
-vim.keymap.set("n", "<leader>rs", function()
-    run_spring_boot()
-end, opts)
-vim.keymap.set("n", "<leader>Rs", function()
-    run_spring_boot(true)
-end, opts)
+-- vim.keymap.set("n", "<leader>rs", function()
+--     run_spring_boot()
+-- end, opts)
+-- vim.keymap.set("n", "<leader>Rs", function()
+--     run_spring_boot(true)
+-- end, opts)
 
 function attach_to_debug()
     local dap = require("dap")
