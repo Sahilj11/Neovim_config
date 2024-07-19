@@ -19,6 +19,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require("lspconfig").lua_ls.setup({
     capabilities = Capabilities,
 })
+require("lspconfig").phpactor.setup({
+    capabilities = Capabilities,
+})
 require("lspconfig").gopls.setup({
     capabilities = Capabilities,
     settings = {
@@ -53,6 +56,7 @@ require("lspconfig").emmet_language_server.setup({
         "pug",
         "typescriptreact",
         "vue",
+        "php"
     },
     init_options = {
         html = {
@@ -121,11 +125,12 @@ null_ls.setup({
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.golines,
         null_ls.builtins.formatting.goimports_reviser,
-        -- null_ls.builtins.diagnostics.eslint_d,
+        null_ls.builtins.formatting.phpcsfixer,
+        -- null_ls.builtins.code_actions.eslint_d,
         -- null_ls.builtins.code_actions.eslint,
         -- null_ls.builtins.completion.spell,
         null_ls.builtins.diagnostics.checkstyle.with({
-        	extra_args = { "-c", "/home/acerbic/google_checks.xml" }, -- or "/sun_checks.xml" or path to self written rules
+            extra_args = { "-c", "/home/acerbic/google_checks.xml" }, -- or "/sun_checks.xml" or path to self written rules
         }),
         null_ls.builtins.code_actions.gitsigns,
         null_ls.builtins.formatting.prettier,
