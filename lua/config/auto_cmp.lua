@@ -7,6 +7,11 @@ luasnip.config.set_config({
 })
 
 cmp.setup({
+    view = {
+        docs = {
+            auto_open = false,
+        },
+    },
     snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
@@ -33,7 +38,6 @@ cmp.setup({
                 fallback()
             end
         end),
-
         ["<c-k>"] = cmp.mapping(function(fallback)
             if luasnip.locally_jumpable(1) then
                 luasnip.jump(1)
@@ -41,7 +45,13 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s" }),
-
+        ["<C-g>"] = function()
+            if cmp.visible_docs() then
+                cmp.close_docs()
+            else
+                cmp.open_docs()
+            end
+        end,
         ["<c-j>"] = cmp.mapping(function(fallback)
             if luasnip.locally_jumpable(-1) then
                 luasnip.jump(-1)
@@ -51,7 +61,7 @@ cmp.setup({
         end, { "i", "s" }),
     }),
     sources = cmp.config.sources({
-        { name = "nvim_lsp" ,max_item_count=200},
+        { name = "nvim_lsp", max_item_count = 200 },
         -- { name = 'vsnip' }, -- For vsnip users.
         { name = "luasnip" }, -- For luasnip users.
         { name = "path" },
@@ -61,11 +71,11 @@ cmp.setup({
         { name = "buffer" },
     }),
 })
-vim.keymap.set({"i", "s"}, "<c-e>", function()
-	if luasnip.choice_active() then
-		luasnip.change_choice(1)
-	end
-end, {silent = true})
+vim.keymap.set({ "i", "s" }, "<c-e>", function()
+    if luasnip.choice_active() then
+        luasnip.change_choice(1)
+    end
+end, { silent = true })
 -- cmp.setup({
 --     enabled = function()
 --         return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"

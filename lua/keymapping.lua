@@ -74,7 +74,7 @@ keymap("v", "<leader>x", ":bd<CR>", opts)
 -- telescope
 -- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":FzfLua live_grep<CR>", opts)
-keymap("n", "<leader>ca", ":FzfLua lsp_code_actions<CR>", opts)
+-- keymap("n", "<leader>ca", ":FzfLua lsp_code_actions<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope treesitter<CR>", opts)
 keymap("n", "<leader>fo", ":FzfLua oldfiles<CR>", opts)
 keymap("n", "<leader>fb", ":FzfLua buffers<CR>", opts)
@@ -139,7 +139,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end, opts)
         vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-        -- vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
         vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     end,
 })
