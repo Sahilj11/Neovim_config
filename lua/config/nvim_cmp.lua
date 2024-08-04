@@ -89,7 +89,15 @@ require("lspconfig").cssls.setup({
 require("lspconfig").html.setup({
     capabilities = capabilities,
 })
-require("lspconfig").htmx.setup({})
+
+local nvim_lsp = require('lspconfig')
+
+-- Function to attach LSP to current buffer
+
+function attach_lsp_to_buffer()
+  nvim_lsp.htmx.setup({})
+end
+-- require("lspconfig").htmx.setup({})
 require("lspconfig").clangd.setup({
     capabilities = Capabilities,
 })
