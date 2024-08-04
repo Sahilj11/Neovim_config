@@ -70,9 +70,7 @@ require('gitsigns').setup {
     -- map('n', '<leader>yu', gs.undo_stage_hunk)
     -- map('n', '<leader>yR', gs.reset_buffer)
     map('n', '<leader>yb', function() gs.blame_line{full=true} end)
-    map('n', '<leader>tb', gs.toggle_current_line_blame)
     map('n', '<leader>yD', function() gs.diffthis('~') end)
-    map('n', '<leader>td', gs.toggle_deleted)
 
     -- Text object
     map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')

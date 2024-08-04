@@ -40,5 +40,6 @@
   "trouble.nvim": { "branch": "main", "commit": "6efc446226679fda0547c0fd6a7892fd5f5b15d8" },
   "vim-react-snippets": { "branch": "main", "commit": "755e288bd0db1052be4195fcc82a25e28b609e0b" },
   "vim-tmux-navigator": { "branch": "master", "commit": "5b3c701686fb4e6629c100ed32e827edf8dad01e" },
-  "which-key.nvim": { "branch": "main", "commit": "6c1584eb76b55629702716995cca4ae2798a9cca" }
+  "which-key.nvim": { "branch": "main", "commit": "6c1584eb76b55629702716995cca4ae2798a9cca" },
+  "workspaces.nvim": { "branch": "master", "commit": "447306604259619618cd84c15b68f2ffdbc702ae" }
 }

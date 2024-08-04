@@ -81,6 +81,15 @@ keymap("n", "<leader>fb", ":FzfLua buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope harpoon marks<CR>", opts)
 keymap("n", "<leader>fw", ":FzfLua lgrep_curbuf<CR>", opts)
 
+-- Trouble
+-- keymap('n','<leader>ts',":Trouble symbols<CR>")
+-- java jdtls
+keymap('n', '<leader>co', "<Cmd>lua require'jdtls'.organize_imports()<CR>", { desc = 'Organize Imports' })
+-- keymap('n', '<leader>crv', "<Cmd>lua require('jdtls').extract_variable()<CR>", { desc = 'Extract Variable' })
+-- keymap('v', '<leader>crv', "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", { desc = 'Extract Variable' })
+-- keymap('n', '<leader>crc', "<Cmd>lua require('jdtls').extract_constant()<CR>", { desc = 'Extract Constant' })
+-- keymap('v', '<leader>crc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", { desc = 'Extract Constant' })
+-- keymap('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = 'Extract Method' })
 -- formatting
 keymap("n", "<leader>i", ":lua vim.lsp.buf.format()<CR>", opts)
 
@@ -93,7 +102,7 @@ keymap("n", "<C-[>", ":Gitsigns prev_hunk<CR>", opts)
 -- keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts)
 
 -- colors
-keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
+-- keymap("n", "<leader>tc", ":HighlightColors Toggle<CR>", opts)
 
 --debugging
 keymap("n", "<leader>cb", ":lua require'dap'.toggle_breakpoint()<CR>", opts)

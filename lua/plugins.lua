@@ -131,7 +131,7 @@ require("lazy").setup({
     },
     -- other
     { "brenoprata10/nvim-highlight-colors" },
-    { "akinsho/toggleterm.nvim",           version = "*",                          config = true },
+    { "akinsho/toggleterm.nvim",           version = "*",                              config = true },
     { "kevinhwang91/nvim-ufo",             dependencies = "kevinhwang91/promise-async" },
     -- lazy.nvim
     {
