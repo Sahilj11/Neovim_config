@@ -25,6 +25,8 @@ wk.add({
     { "<leader>t",   group = "Trouble" },
     { "<leader>ts",  "<cmd>Trouble symbols<cr>",       desc = "LSP Symbols" },
     { "<leader>tc",  "<cmd>HighlightColors Toggle<cr>" },
+    { "<leader>te",  "<cmd>Trouble diagnostics<cr>" },
+    { "<leader>td",  "<cmd>Trouble todo<cr>" },
 })
 
 -- wk.register({

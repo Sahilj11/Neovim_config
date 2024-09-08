@@ -19,3 +19,9 @@ require("config.lualine")
 require("config.tree-sitter")
 require("config.toggleterm")
 require("options")
+require("config.java_scripts")
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+  pattern = "*.slint",
+  command = "set filetype=slint"
+})

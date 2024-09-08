@@ -56,7 +56,7 @@ require("lspconfig").emmet_language_server.setup({
         "pug",
         "typescriptreact",
         "vue",
-        "php"
+        "php",
     },
     init_options = {
         html = {
@@ -69,6 +69,15 @@ require("lspconfig").emmet_language_server.setup({
 })
 require("lspconfig").pyright.setup({
     capabilities = Capabilities,
+})
+require("lspconfig").slint_lsp.setup({
+    capabilities = Capabilities,
+    cmd = {
+        "slint-lsp",
+    },
+    filetypes = {
+        "slint",
+    },
 })
 require("lspconfig").rust_analyzer.setup({
     -- Server-specific settings. See `:help lspconfig-setup`
@@ -90,13 +99,14 @@ require("lspconfig").html.setup({
     capabilities = capabilities,
 })
 
-local nvim_lsp = require('lspconfig')
+local nvim_lsp = require("lspconfig")
 
 -- Function to attach LSP to current buffer
 
 function attach_lsp_to_buffer()
-  nvim_lsp.htmx.setup({})
+    nvim_lsp.htmx.setup({})
 end
+
 -- require("lspconfig").htmx.setup({})
 require("lspconfig").clangd.setup({
     capabilities = Capabilities,
@@ -134,6 +144,7 @@ null_ls.setup({
         null_ls.builtins.formatting.golines,
         null_ls.builtins.formatting.goimports_reviser,
         null_ls.builtins.formatting.phpcsfixer,
+        null_ls.builtins.formatting.clang_format,
         -- null_ls.builtins.code_actions.eslint_d,
         -- null_ls.builtins.code_actions.eslint,
         -- null_ls.builtins.completion.spell,

@@ -124,9 +124,12 @@ keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
 keymap("n", "<Leader>nc", ":lua require('neogen').generate({type='class'})<CR>", opts)
 
+-- java scripts
+keymap("n", "<leader>np",":lua RunMavenTestClass()<cr>",opts)
+keymap("n", "<leader>nm",":lua RunMavenTestMethod()<cr>",opts)
 -- LSP
 --Keymapping for lsp
-vim.keymap.set("n", "<C-i>", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>re", vim.diagnostic.open_float)
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
